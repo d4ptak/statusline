@@ -25,3 +25,24 @@ A Node.js CLI utility that generates a colorized status line for Claude Code, di
 ```
 Opus 4.6 | ●●●●●○○○○○ 45% | 15k / 200k | 0m 45s | Agent: security-reviewer
 ```
+
+## Installation & Configuration
+
+Copy `statusline.js` to your Claude config directory:
+
+```bash
+cp statusline.js ~/.claude/statusline.js
+```
+
+Then add the following to your Claude Code `settings.json` (typically `~/.claude/settings.json`):
+
+```json
+{
+  "statusLine": {
+    "type": "command",
+    "command": "node ~/.claude/statusline.js"
+  }
+}
+```
+
+Claude Code will invoke the command on each status line refresh, passing session metadata as JSON to stdin, and display the output in the status bar.

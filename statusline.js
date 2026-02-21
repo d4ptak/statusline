@@ -9,14 +9,10 @@ process.stdin.on('end', () => {
     const BLUE = '\x1b[38;5;39m', ORANGE = '\x1b[38;5;215m', GREEN = '\x1b[38;5;34m', CYAN = '\x1b[38;5;73m',
         RED = '\x1b[38;5;203m', YELLOW = '\x1b[38;5;178m', WHITE = '\x1b[38;5;252m', DIM = '\033[2m', RESET = '\x1b[0m'
 
-    // Model label: e.g. "Opus 4.6" from id "claude-opus-4-6"
-    const modelId = data.model?.id || '';
-    const displayName = data.model?.display_name || 'Claude';
-    const versionMatch = modelId.match(/(\d+)-(\d+)$/);
-    const version = versionMatch ? `${versionMatch[1]}.${versionMatch[2]}` : '';
-    const modelLabel = version ? `${displayName} ${version}` : displayName;
-    const modelColor = displayName.includes('Opus') ? ORANGE : displayName.includes('Sonnet') ? BLUE : displayName.includes('Haiku') ? CYAN : RED;
-    output += `${modelColor}${modelLabel}${RESET}`;
+    // Model: e.g. "Opus 4.6"
+    const model = data.model?.display_name || 'Claude';
+    const modelColor = model.includes('Opus') ? ORANGE : model.includes('Sonnet') ? BLUE : model.includes('Haiku') ? CYAN : RED;
+    output += `${modelColor}${model }${RESET}`;
 
     // Progress bar: ●○○○○○○○○○ 8%
     const pct = Math.floor(data.context_window?.used_percentage || 0);

@@ -24,12 +24,12 @@ A Node.js CLI utility that generates a colorized status line for Claude Code, di
 
 Basic output:
 ```
-Opus 4.6 | ●●●●●○○○○○ 45% | ↓ 15k ↑ 2k / 200k | ⏱️ 0m 45s
+Opus 4.6 | ●●●●●○○○○○ 45% | 16k / 200k | ↓ 16k ↑ 2k | 0m 45s
 ```
 
 With rate limits:
 ```
-Opus 4.6 | ●●●●●○○○○○ 45% | ↓ 15k ↑ 2k / 200k | ⏱️ 0m 45s | ●●●●●●○○○○ 60% ↺ 2h 15m | ●●●●●●●○○○ 70% ↺ 3d 5h
+Opus 4.6 | ●●●●●○○○○○ 45% | 16k / 200k | ↓ 16k ↑ 2k | 0m 45s | ●●●●●●○○○○ 60% ↺ 2h 15m | ●●●●●●●○○○ 70% ↺ 3d 5h
 ```
 
 ### Color Scheme

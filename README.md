@@ -10,7 +10,7 @@ A Node.js CLI utility that generates a colorized status line for Claude Code, di
 - **Context Window**: Visual progress bar with percentage usage
 - **Tokens**: Current token usage (input, cache creation, cache read) vs context window size
 - **Duration**: Total session duration in minutes and seconds
-- **Agent**: Name of the running agent (if available)
+- **Rate Limits**: Claude.ai rate limit usage for 5-hour and 7-day windows with used percentage and reset countdown
 
 ## Features
 
@@ -18,13 +18,31 @@ A Node.js CLI utility that generates a colorized status line for Claude Code, di
 📊 **Visual progress bar** - 10-character progress indicator for context window usage
 🎯 **Token tracking** - Displays combined token usage including cache metrics
 ⏱️ **Session timing** - Shows elapsed session time
-🤖 **Agent identification** - Displays agent name when available
+📈 **Rate limit tracking** - Display Claude.ai rate limit usage (5-hour and 7-day windows) with used percentage and reset countdown
 
 ### Output Example
 
+Basic output:
 ```
-Opus 4.6 | ●●●●●○○○○○ 45% | 15k / 200k | 0m 45s | Agent: security-reviewer
+Opus 4.6 | ●●●●●○○○○○ 45% | ↓ 15k ↑ 2k / 200k | ⏱️ 0m 45s
 ```
+
+With rate limits:
+```
+Opus 4.6 | ●●●●●○○○○○ 45% | ↓ 15k ↑ 2k / 200k | ⏱️ 0m 45s | ●●●●●●○○○○ 60% ↺ 2h 15m | ●●●●●●●○○○ 70% ↺ 3d 5h
+```
+
+### Color Scheme
+
+- **Models**: Opus (Cyan), Sonnet (Violet), Haiku (Orange), Others (Red)
+- **Progress Bars**: Green (<70%), Yellow (70-89%), Red (≥90%)
+- **Tokens**: Cyan (input ↓), Violet (output ↑)
+- **Duration**: Orange
+
+## Requirements
+
+- **Node.js**: 14.0.0 or higher (for optional chaining `?.` support)
+- **Claude Code**: 2.1.80 or higher (Rate Limits feature introduced in 2.1.80)
 
 ## Installation & Configuration
 

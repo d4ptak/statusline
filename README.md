@@ -37,7 +37,7 @@ Opus 4.6 | ●●●●●○○○○○ 45% | ↓ 15k ↑ 2k / 200k | ⏱️ 0
 - **Models**: Opus (Cyan), Sonnet (Violet), Haiku (Orange), Others (Red)
 - **Progress Bars**: Green (<70%), Yellow (70-89%), Red (≥90%)
 - **Tokens**: Cyan (input ↓), Violet (output ↑)
-- **Duration**: Orange
+- **Duration**: Blue
 
 ## Requirements
 

@@ -68,6 +68,18 @@ Add to `~/.claude/settings.json`:
 
 ### Bash
 
+`statusline.sh` requires [`jq`](https://jqlang.org/) for JSON parsing. Check if it's available:
+
+```bash
+jq --version
+```
+
+If not installed:
+
+```bash
+sudo apt install jq
+```
+
 Copy `statusline.sh` to your Claude config directory and make it executable:
 
 ```bash

@@ -1,6 +1,6 @@
 # statusline
 
-A Node.js CLI utility that generates a colorized status line for Claude Code, displaying session metadata including model information, context window usage, token consumption, and session duration.
+A CLI utility that generates a colorized status line for Claude Code, displaying session metadata including model information, context window usage, token consumption, and session duration. Available as both a Node.js script (`statusline.js`) and a Bash script (`statusline.sh`).
 
 ## Overview
 
@@ -41,10 +41,13 @@ Opus 4.6 | ●●●●●○○○○○ 45% | 16k / 200k | ↓ 16k ↑ 2k | 0m
 
 ## Requirements
 
-- **Node.js**: 14.0.0 or higher (for optional chaining `?.` support)
 - **Claude Code**: 2.1.80 or higher (Rate Limits feature introduced in 2.1.80)
+- **Node.js variant** (`statusline.js`): Node.js 14.0.0 or higher
+- **Bash variant** (`statusline.sh`): Bash 4.0+, [`jq`](https://jqlang.org/)
 
 ## Installation & Configuration
+
+### Node.js
 
 Copy `statusline.js` to your Claude config directory:
 
@@ -52,13 +55,33 @@ Copy `statusline.js` to your Claude config directory:
 cp statusline.js ~/.claude/statusline.js
 ```
 
-Then add the following to your Claude Code `settings.json` (typically `~/.claude/settings.json`):
+Add to `~/.claude/settings.json`:
 
 ```json
 {
   "statusLine": {
     "type": "command",
     "command": "node ~/.claude/statusline.js"
+  }
+}
+```
+
+### Bash
+
+Copy `statusline.sh` to your Claude config directory and make it executable:
+
+```bash
+cp statusline.sh ~/.claude/statusline.sh
+chmod +x ~/.claude/statusline.sh
+```
+
+Add to `~/.claude/settings.json`:
+
+```json
+{
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
   }
 }
 ```
